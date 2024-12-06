@@ -1,0 +1,6 @@
+prompt: |
+  Question: In base-{{ base }}, what is {{ query[0] }} + {{ query[1] }}?
+  Answer:
+  Let's think step by step.
+
+return_last: yes

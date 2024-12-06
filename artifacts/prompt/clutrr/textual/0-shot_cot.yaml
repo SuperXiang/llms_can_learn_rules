@@ -1,0 +1,7 @@
+prompt: |
+  Document: {{ document }}
+  Question: {{ query[1] }} is {{ query[0] }}'s what?
+  Answer:
+  Let's think step by step.
+
+return_last: yes

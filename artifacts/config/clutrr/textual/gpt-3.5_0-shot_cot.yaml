@@ -1,0 +1,4 @@
+test:
+  dataset: clutrr
+  model: gpt-3.5-turbo
+  prompt: prompt/clutrr/textual/0-shot_cot.yaml

@@ -1,0 +1,12 @@
+train:
+  dataset: base-11
+  model: gemini-pro
+  prompt: prompt/arithmetic/base-11/5-shot_cot_htt_train.yaml
+
+test:
+  dataset: base-11
+  model: gemini-pro
+  prompt: prompt/arithmetic/base-11/5-shot_cot_htt_test.yaml
+  library: checkpoint/arithmetic/base-11/gemini-pro_5-shot_cot_htt_2000.yaml
+  min_coverage: 2
+  min_confidence: 0.5

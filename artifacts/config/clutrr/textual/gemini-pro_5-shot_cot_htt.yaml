@@ -1,0 +1,7 @@
+test:
+  dataset: clutrr
+  model: gemini-pro
+  prompt: prompt/clutrr/textual/5-shot_cot_htt_test.yaml
+  library: checkpoint/clutrr/symbolic/gemini-pro_5-shot_cot_htt_2000.yaml
+  min_coverage: 2
+  min_confidence: 0.3

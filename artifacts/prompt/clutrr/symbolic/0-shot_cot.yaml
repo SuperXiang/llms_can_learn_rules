@@ -1,0 +1,7 @@
+prompt: |
+  Context: The relations on the path from {{ query[0] }} to {{ query[1] }} are {{ path | join(", ") }}.
+  Question: {{ query[1] }} is {{ query[0] }}'s what?
+  Answer:
+  Let's think step by step.
+
+return_last: yes

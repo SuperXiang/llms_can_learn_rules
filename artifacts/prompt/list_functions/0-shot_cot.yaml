@@ -1,0 +1,14 @@
+system: |
+  Instruction: Infer the function behind the examples. Use the function to answer the questions.
+
+prompt: |
+  Examples:
+  {%- for i in range(train_queries | length) %}
+  {{ train_queries[i] }} -> {{ train_answers[i] }}
+  {%- endfor %}
+  Questions:
+  {%- for query in queries %}
+  {{ query }} -> ?
+  {%- endfor %}
+  Answers:
+  Let's think step by step.

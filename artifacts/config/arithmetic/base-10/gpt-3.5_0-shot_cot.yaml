@@ -1,0 +1,4 @@
+test:
+  dataset: base-10
+  model: gpt-3.5-turbo
+  prompt: prompt/arithmetic/0-shot_cot.yaml

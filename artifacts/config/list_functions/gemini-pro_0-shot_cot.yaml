@@ -1,0 +1,4 @@
+test:
+  dataset: list_functions
+  model: gemini-pro
+  prompt: prompt/list_functions/0-shot_cot.yaml

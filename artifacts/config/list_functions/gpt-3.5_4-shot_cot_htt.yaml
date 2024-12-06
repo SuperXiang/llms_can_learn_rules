@@ -1,0 +1,12 @@
+train:
+  dataset: list_functions
+  model: gpt-3.5-turbo-16k-0613
+  prompt: prompt/list_functions/4-shot_cot_htt_train.yaml
+
+test:
+  dataset: list_functions
+  model: gpt-3.5-turbo-16k-0613
+  prompt: prompt/list_functions/4-shot_cot_htt_test.yaml
+  library: checkpoint/list_functions/gpt-3.5_4-shot_cot_htt_5000.yaml
+  min_coverage: 1
+  min_confidence: 0.1

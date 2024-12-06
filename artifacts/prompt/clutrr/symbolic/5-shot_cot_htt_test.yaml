@@ -1,0 +1,68 @@
+system: |
+  Instruction: When you answer the questions, try to use the provided knowledge whenever possible. Try not to invent knowledge by yourself unless necessary.
+  Knowledge:
+  {%- set key_rules = {} -%}
+  {%- for rule in rules -%}
+    {%- set tokens = rule.split(" ") -%}
+    {%- set _ = key_rules.update({(tokens[0].split("'")[0], tokens[1]): rule}) -%}
+  {%- endfor -%}
+  {%- set global = namespace(old =["", ""]) -%}
+  {%- for key, rule in key_rules | dictsort -%}
+    {%- if global.old[1] and global.old != key -%}
+  </{{ global.old[1] }}>
+    {%- endif -%}
+    {%- if global.old[0] and global.old[0] != key[0] -%}
+  </{{ global.old[0] }}>
+    {%- endif -%}
+    {%- if global.old[0] != key[0] %}
+  <{{ key[0] }}>
+    {%- endif -%}
+    {%- if global.old != key -%}
+  <{{ key[1] }}>
+    {%- endif -%}
+    {{- rule -}}
+    {%- set global.old = key -%}
+  {%- endfor -%}
+  </{{ global.old[1] }}></{{ global.old[0] }}>
+
+prompt: |
+  Context: The relations on the path from Alan to Anthony are daughter, uncle, son.
+  Question: Anthony is Alan's what?
+  Answer:
+  For daughter's uncle, we retrieve <daughter><uncle>daughter's uncle is brother. So the relations are reduced to brother, son.
+  For brother's son, we retrieve <brother><son>brother's son is nephew. So the relations are reduced to nephew.
+  Therefore, the answer is nephew.
+
+  Context: The relations on the path from Annie to Carlos are brother, mother, son.
+  Question: Carlos is Annie's what?
+  Answer:
+  For brother's mother, we retrieve <brother><mother>brother's mother is mother. So the relations are reduced to mother, son.
+  For mother's son, we retrieve <mother><son>mother's son is brother. So the relations are reduced to brother.
+  Therefore, the answer is brother.
+
+  Context: The relations on the path from Beverly to Michelle are father, daughter, aunt.
+  Question: Michelle is Beverly's what?
+  Answer:
+  For father's daughter, we retrieve <father><daughter>father's daughter is sister. So the relations are reduced to sister, aunt.
+  For sister's aunt, we retrieve <sister><aunt>sister's aunt is aunt. So the relations are reduced to aunt.
+  Therefore, the answer is aunt.
+
+  Context: The relations on the path from Lee to Jeanna are father, daughter, sister.
+  Question: Jeanna is Lee's what?
+  Answer:
+  For father's daughter, we retrieve <father><daughter>father's daughter is sister. So the relations are reduced to sister, sister.
+  For sister's sister, we retrieve <sister><sister>sister's sister is sister. So the relations are reduced to sister.
+  Therefore, the answer is sister.
+
+  Context: The relations on the path from Craig to Molly are sister, father, mother.
+  Question: Molly is Craig's what?
+  Answer:
+  For sister's father, we retrieve <sister><father>sister's father is father. So the relations are reduced to father, mother.
+  For father's mother, we retrieve <father><mother>father's mother is grandmother. So the relations are reduced to grandmother.
+  Therefore, the answer is grandmother.
+
+  Context: The relations on the path from {{ query[0] }} to {{ query[1] }} are {{ path | join(", ") }}.
+  Question: {{ query[1] }} is {{ query[0] }}'s what?
+  Answer:
+
+return_last: yes

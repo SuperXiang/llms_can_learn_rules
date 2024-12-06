@@ -1,0 +1,56 @@
+prompt: |
+  Document: Anthony went to the park with his father, James. Annie took her uncle James to the grocery store. Alan and his daughter Annie spent Father's Day together. Annie took her dad out to a sports bar, and they had a great time watching football and drinking beer there.
+  Question: Anthony is Alan's what?
+  Answer: We first extract all triplets from the document. We then find the path from Alan to Anthony. Finally, we reduce the relations on the path to get the answer.
+  The triplets include (Anthony, father, James), (Annie, uncle, James), (Alan, daughter, Annie).
+  The path from Alan to Anthony is (Alan, daughter, Annie), (Annie, uncle, James), (James, son, Anthony).
+  The relations on the path are daughter, uncle, son.
+  Daughter's uncle is brother. So the relations are reduced to brother, son.
+  Brother's son is nephew. So the relations are reduced to nephew.
+  Therefore, Anthony is Alan's nephew.
+
+  Document: Valerie's biggest accomplishment is raising her son Carlos. Annie does n't like having to babysit her younger brother, Emmanuel. Valerie and her son Emmanuel had lunch together at a local Chinese restaurant.
+  Question: Carlos is Annie's what?
+  Answer: We first extract all triplets from the document. We then find the path from Annie to Carlos. Finally, we reduce the relations on the path to get the answer.
+  The triplets include (Valerie, son, Carlos), (Annie, brother, Emmanuel), (Valerie, son, Emmanuel).
+  The path from Annie to Carlos is (Annie, brother, Emmanuel), (Emmanuel, mother, Valerie), (Valerie, son, Carlos).
+  The relations on the path are brother, mother, son.
+  Brother's mother is mother. So the relations are reduced to mother, son.
+  Mother's son is brother. So the relations are reduced to brother.
+  Therefore, Carlos is Annie's brother.
+
+  Document: James likes to take his daughter Jeanna fishing. James loves cooking with his daughter. Her name is Beverly. Jeanna loves visiting with her aunt Michelle.
+  Question: Michelle is Beverly's what?
+  Answer: We first extract all triplets from the document. We then find the path from Beverly to Michelle. Finally, we reduce the relations on the path to get the answer.
+  The triplets include (James, daughter, Jeanna), (James, daughter, Beverly), (Jeanna, aunt, Michelle).
+  The path from Beverly to Michelle is (Beverly, father, James), (James, daughter, Jeanna), (Jeanna, aunt, Michelle).
+  The relations on the path are father, daughter, aunt.
+  Father's daughter is sister. So the relations are reduced to sister, aunt.
+  Sister's aunt is aunt. So the relations are reduced to aunt.
+  Therefore, Michelle is Beverly's aunt.
+
+  Document: Lee was finally coming of age and it was time for him and his father to go on a coming of age camping trip. Beverly, James's younger daughter, decided she wanted to go on the trip despite being several years younger. Jeanna took her younger sister Beverly to the carnival last weekend.
+  Question: Jeanna is Lee's what?
+  Answer: We first extract all triplets from the document. We then find the path from Lee to Jeanna. Finally, we reduce the relations on the path to get the answer.
+  The triplets include (Lee, father, James), (James, daughter, Beverly), (Jeanna, sister, Beverly).
+  The path from Lee to Jeanna is (Lee, father, James), (James, daughter, Beverly), (Beverly, sister, Jeanna).
+  The relations on the path are father, daughter, sister.
+  Father's daughter is sister. So the relations are reduced to sister, sister.
+  Sister's sister is sister. So the relations are reduced to sister.
+  Therefore, Jeanna is Lee's sister.
+
+  Document: Craig's sister, Rosie, bought movie tickets at a discount rate. Rosie and her father Elliott love to go skiing. Often, Elliott will invite his mother Molly to join them.
+  Question: Molly is Craig's what?
+  Answer: We first extract all triplets from the document. We then find the path from Craig to Molly. Finally, we reduce the relations on the path to get the answer.
+  The triplets include (Craig, sister, Rosie), (Rosie, father, Elliott), (Elliott, mother, Molly).
+  The path from Craig to Molly is (Craig, sister, Rosie), (Rosie, father, Elliott), (Elliott, mother, Molly).
+  The relations on the path are sister, father, mother.
+  Sister's father is father. So the relations are reduced to father, mother.
+  Father's mother is grandmother. So the relations are reduced to grandmother.
+  Therefore, Molly is Craig's grandmother.
+
+  Document: {{ document }}
+  Question: {{ query[1] }} is {{ query[0] }}'s what?
+  Answer:
+
+return_last: yes

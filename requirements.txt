@@ -1,0 +1,9 @@
+nltk
+tqdm
+numpy
+jinja2
+pyyaml
+openai
+tenacity
+tiktoken
+google-generativeai

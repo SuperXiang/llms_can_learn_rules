@@ -1,0 +1,7 @@
+nltk
+tqdm
+numpy
+jinja2
+pyyaml
+openai>=1.0
+tenacity

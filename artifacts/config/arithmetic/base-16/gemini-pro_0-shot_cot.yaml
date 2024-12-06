@@ -1,0 +1,4 @@
+test:
+  dataset: base-16
+  model: gemini-pro
+  prompt: prompt/arithmetic/0-shot_cot.yaml

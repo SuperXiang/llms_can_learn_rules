@@ -1,0 +1,4 @@
+test:
+  dataset: base-16
+  model: gpt-4
+  prompt: prompt/arithmetic/base-16/5-shot_cot.yaml

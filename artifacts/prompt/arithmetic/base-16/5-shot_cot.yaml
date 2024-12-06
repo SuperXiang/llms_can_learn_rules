@@ -1,0 +1,45 @@
+prompt: |
+  Question: In base-16, what is EC + DD?
+  Answer:
+  EC is E, C. DD is D, D. So the steps are C + D, E + D.
+  There is no carry. C + D = 19. 19 is 1, 9. So we set the carry to 1. Prepend 9 to the answer. So far the answer has 1 digit: 9.
+  The carry is 1. E + D + 1 = 1C. 1C is 1, C. So we set the carry to 1. Prepend C to the answer. So far the answer has 2 digits: C, 9.
+  The carry is 1. Prepend 1 to the answer. So far the answer has 3 digits: 1, C, 9.
+  Therefore, the answer is 1C9.
+
+  Question: In base-16, what is 18 + 9F?
+  Answer:
+  18 is 1, 8. 9F is 9, F. So the steps are 8 + F, 1 + 9.
+  There is no carry. 8 + F = 17. 17 is 1, 7. So we set the carry to 1. Prepend 7 to the answer. So far the answer has 1 digit: 7.
+  The carry is 1. 1 + 9 + 1 = B. B is 0, B. So we clear the carry. Prepend B to the answer. So far the answer has 2 digits: B, 7.
+  There is no carry. So far the answer has 2 digits: B, 7.
+  Therefore, the answer is B7.
+
+  Question: In base-16, what is 79 + 8B?
+  Answer:
+  79 is 7, 9. 8B is 8, B. So the steps are 9 + B, 7 + 8.
+  There is no carry. 9 + B = 14. 14 is 1, 4. So we set the carry to 1. Prepend 4 to the answer. So far the answer has 1 digit: 4.
+  The carry is 1. 7 + 8 + 1 = 10. 10 is 1, 0. So we set the carry to 1. Prepend 0 to the answer. So far the answer has 2 digits: 0, 4.
+  The carry is 1. Prepend 1 to the answer. So far the answer has 3 digits: 1, 0, 4.
+  Therefore, the answer is 104.
+
+  Question: In base-16, what is A6 + 94?
+  Answer:
+  A6 is A, 6. 94 is 9, 4. So the steps are 6 + 4, A + 9.
+  There is no carry. 6 + 4 = A. A is 0, A. So we clear the carry. Prepend A to the answer. So far the answer has 1 digit: A.
+  There is no carry. A + 9 = 13. 13 is 1, 3. So we set the carry to 1. Prepend 3 to the answer. So far the answer has 2 digits: 3, A.
+  The carry is 1. Prepend 1 to the answer. So far the answer has 3 digits: 1, 3, A.
+  Therefore, the answer is 13A.
+
+  Question: In base-16, what is 54 + D3?
+  Answer:
+  54 is 5, 4. D3 is D, 3. So the steps are 4 + 3, 5 + D.
+  There is no carry. 4 + 3 = 7. 7 is 0, 7. So we clear the carry. Prepend 7 to the answer. So far the answer has 1 digit: 7.
+  There is no carry. 5 + D = 12. 12 is 1, 2. So we set the carry to 1. Prepend 2 to the answer. So far the answer has 2 digits: 2, 7.
+  The carry is 1. Prepend 1 to the answer. So far the answer has 3 digits: 1, 2, 7.
+  Therefore, the answer is 127.
+
+  Question: In base-16, what is {{ query[0] }} + {{ query[1] }}?
+  Answer:
+
+return_last: yes

@@ -1,0 +1,4 @@
+test:
+  dataset: clutrr
+  model: gemini-pro
+  prompt: prompt/clutrr/symbolic/5-shot_cot.yaml
